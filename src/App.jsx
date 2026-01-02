@@ -1,4 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import Login from './pages/Login'
+import StaffDashboard from './pages/StaffDashboard'
+import Tracker from './pages/Tracker'
+import Receipt from './pages/Receipt'
+import OfflineAlert from './components/OfflineAlert'
 import './App.css'
 
 function Home() {
@@ -13,21 +18,16 @@ function Home() {
   )
 }
 
-function Tracker() {
-  return <h2>Customer Tracker (Coming Soon)</h2>
-}
-
-function StaffDashboard() {
-  return <h2>Staff Dashboard (Coming Soon)</h2>
-}
-
 function App() {
   return (
     <Router>
+      <OfflineAlert />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/track" element={<Tracker />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/staff" element={<StaffDashboard />} />
+        <Route path="/receipt/:orderId" element={<Receipt />} />
       </Routes>
     </Router>
   )
